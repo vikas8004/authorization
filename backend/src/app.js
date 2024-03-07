@@ -10,10 +10,7 @@ app.use(
   })
 );
 app.use(
-  cors({
-    origin: ["http://localhost:5173", "https://auth-vikas-frontend.vercel.app"],
-    credentials: true,
-  })
+  cors()
 );
 app.use(cookieParser());
 app.use("/api/v1", userRouter);
