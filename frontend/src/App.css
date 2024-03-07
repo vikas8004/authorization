@@ -1,0 +1,12 @@
+a{
+    text-decoration: none;
+}
+.active{
+    color: cyan;
+}
+input,button{
+    display: block;
+    width: 60%;
+    margin: 0px auto;
+    margin-bottom: 20px;
+}
