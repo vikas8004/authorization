@@ -6,8 +6,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    // credentials:true,
-    origin: ["http://localhost:5173", "https://auth-frontend-teal.vercel.app"],
+    origin: "*",
     credentials: true,
   })
 );
