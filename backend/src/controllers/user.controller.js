@@ -5,7 +5,6 @@ import { User } from "../model/user.model.js";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-
 const generateAccessToken = async (id) => {
   const foundUser = await User.findOne({ _id: id });
   const token = jwt.sign(
@@ -63,7 +62,12 @@ const loginUser = asyncHandler(async (req, res, next) => {
         const token = await generateAccessToken(foundUser._id);
         res
           .status(200)
-          .cookie("accessToken", token,{httpOnly:true,sameSite:"lax",maxAge:24*60*60*1000})
+          .cookie("accessToken", token, {
+            httpOnly: true,
+            sameSite: "none",
+            secure: true,
+            maxAge: 24 * 60 * 60 * 1000,
+          })
           .send(new ApiResponse(200, { message: "logged in successfully" }));
       } else {
         res

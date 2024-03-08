@@ -11,7 +11,11 @@ app.use(
 );
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://auth-vikas-frontend.vercel.app"],
+    origin: [
+      "http://localhost:5173",
+      "https://auth-vikas-frontend.vercel.app",
+      "https://auth-frontend-vikas.netlify.app",
+    ],
     credentials: true,
   })
 );
